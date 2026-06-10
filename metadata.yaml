@@ -1,0 +1,6 @@
+name: yukkuri_voice
+desc: 自动拦截LLM的文本回复，转化为油库里/二次元语音发送
+help: 安装后启用即可。回复消息将包含语音。
+version: 1.0.0
+author: Claude Code
+repo: https://github.com/AstrBot/AstrBot

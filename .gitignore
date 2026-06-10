@@ -1,0 +1,7 @@
+# 忽略所有的编译产物和 DLL 核心库
+# 因为这些是商业闭源文件，不能上传到 GitHub
+*.dll
+*.exe
+aq_dic/
+*.wav
+__pycache__/
