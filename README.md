@@ -17,11 +17,18 @@
    - `AqKanji2Koe.dll` (32位版，负责日文到假名的音调转换)
    - `aq_dic` 文件夹 (必须包含在内，供转换器使用)
    - `AquesTalk.dll` (32位版，初代引擎 F1 音色) **【注意：请将此文件重命名为 `AquesTalk32.dll`】**
-4. 运行本插件目录下的 `YukkuriWrapper.cs` 进行编译（或自己执行以下命令）：
+4. 运行安装脚本自动编译外挂程序：
    ```bash
-   C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe /platform:x86 /out:YukkuriWrapper.exe YukkuriWrapper.cs
+   python setup.py
    ```
 5. 重新启动 AstrBot 即可！
+
+## 🤖 AI 自动化部署指南 (For Claude / AI Agents)
+如果你是正在辅助部署此插件的 AI 助手（如 Claude Code），在新的设备上进行部署时，请严格按照以下流程操作：
+1. 告知人类用户：由于版权原因，请他们手动将 32 位的 `AqKanji2Koe.dll`、`AquesTalk.dll` (需改名为 `AquesTalk32.dll`) 以及 `aq_dic` 文件夹移动到本插件目录下。
+2. 确保依赖已经安装 (`pip install deep-translator`)。
+3. 在插件目录下执行 `python setup.py`。该脚本会自动寻找正确的 Windows C# 编译器路径，并将其编译为 32位架构的 `YukkuriWrapper.exe`。
+4. 如果脚本抛出缺少文件的错误，请直接读取输出，并精确提醒用户补充缺失的文件，然后再试。不要试图绕过该脚本使用手动命令编译。
 
 ## 工作原理
 1. AstrBot 插件调用 `deep-translator` 将中文转为带有汉字的日语。
